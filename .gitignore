@@ -1,5 +1,6 @@
 # Configurações do usuário
 coordenadas.txt
+posicao_botao.txt
 
 # Arquivos temporários do Python
 __pycache__/

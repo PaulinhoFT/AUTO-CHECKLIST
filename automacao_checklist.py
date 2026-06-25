@@ -54,27 +54,79 @@ def disparar_atalho():
     # Ao pressionar F12 em qualquer lugar, manda o Tkinter executar a função
     root.after(0, executar_automacao)
 
-# Configuração da Interface Gráfica
+class AppFlutuante:
+    def __init__(self, root):
+        self.root = root
+        
+        # Remove a barra de título do Windows para ficar um botão limpo
+        self.root.overrideredirect(True)
+        self.root.attributes("-topmost", True)
+        
+        # Tenta carregar a última posição em que o usuário deixou o botão
+        arquivo_pos = resource_path("posicao_botao.txt")
+        if os.path.exists(arquivo_pos):
+            with open(arquivo_pos, "r") as f:
+                pos = f.read().strip()
+                self.root.geometry(f"45x45{pos}")
+        else:
+            self.root.geometry("45x45+300+300")
+        
+        # Cor da borda
+        self.root.configure(bg="#333333")
+        
+        # Variáveis para arrastar a janela
+        self.x = 0
+        self.y = 0
+        
+        # Botão principal
+        self.btn = tk.Button(
+            self.root, 
+            text="⚡", 
+            command=executar_automacao, 
+            bg="#00C853", 
+            fg="white", 
+            font=("Segoe UI Emoji", 16), 
+            relief="flat",
+            activebackground="#69F0AE",
+            cursor="hand2"
+        )
+        self.btn.pack(expand=True, fill="both", padx=1, pady=1)
+        
+        self.btn.bind("<Button-3>", self.iniciar_arrasto)
+        self.btn.bind("<B3-Motion>", self.arrastar)
+        self.btn.bind("<ButtonRelease-3>", self.salvar_posicao) # Salva ao soltar o mouse
+        
+        # Para fechar o programa, o usuário dá um duplo clique com o BOTÃO DIREITO
+        self.btn.bind("<Double-Button-3>", lambda e: self.root.destroy())
+
+    def salvar_posicao(self, event):
+        # geometry() retorna algo como "45x45+1920+100", pegamos só o final
+        atual = self.root.geometry()
+        pos = atual[atual.find('+'):] 
+        arquivo_pos = resource_path("posicao_botao.txt")
+        try:
+            with open(arquivo_pos, "w") as f:
+                f.write(pos)
+        except:
+            pass
+
+    def iniciar_arrasto(self, event):
+        self.x = event.x
+        self.y = event.y
+
+    def arrastar(self, event):
+        x = self.root.winfo_pointerx() - self.x
+        y = self.root.winfo_pointery() - self.y
+        self.root.geometry(f"+{x}+{y}")
+
+# --- INICIALIZAÇÃO ---
 root = tk.Tk()
-root.title("Auto Checklist")
-root.geometry("380x160")
-root.attributes("-topmost", True)
 
-label = tk.Label(root, text="Automação por Coordenadas", font=("Arial", 12, "bold"))
-label.pack(pady=10)
-
-btn = tk.Button(root, text="Marcar Checklist (F9)", command=executar_automacao, 
-                bg="#4CAF50", fg="white", font=("Arial", 12, "bold"), 
-                padx=20, pady=10, cursor="hand2")
-btn.pack(pady=5)
-
-rodape = tk.Label(root, text="Dica: Deixe a janela aberta e pressione F9 a qualquer momento.", font=("Arial", 9), fg="#666666")
-rodape.pack()
-
-# Ativa o atalho F9 se a biblioteca estiver instalada
+# Ativa o atalho F9
 if keyboard:
     keyboard.add_hotkey('F9', disparar_atalho)
 else:
-    messagebox.showwarning("Atalho F9", "Para o F9 funcionar, abra seu terminal e instale a biblioteca digitando:\n\npip install keyboard")
+    print("Módulo keyboard não encontrado. Atalho F9 desativado.")
 
+app = AppFlutuante(root)
 root.mainloop()
