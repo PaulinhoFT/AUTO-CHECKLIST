@@ -1,0 +1,7 @@
+# Configurações do usuário
+coordenadas.txt
+
+# Arquivos temporários do Python
+__pycache__/
+*.py[cod]
+*$py.class
