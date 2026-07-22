@@ -73,7 +73,8 @@ def carregar_pre_registros():
             "Botão 8 - Não autentica solucionado interno": "VALIDADO QUE REDE DO ASSINANTE NÃO ESTAVA AUTENTICADA.\nREALIZADO PROCEDIMENTOS COM ASSINANTE, ONDE SUBIU A CONEXÃO.\nTESTADO E TUDO OK.",
             "Botão 9 - Inatividade (Não falou nada)": "ASSINANTE ENTROU EM CONTATO, POREM NÃO RELATOU NADA.\nATENDIMENTO FINALIZADO COM INATIVIDADE.",
             "Botão 10 - Envio de boleto": "ENVIADO BOLETO PARA ASSINANTE, CONFORME SOLICITADO.",
-            "Botão 11 - Assinante enviou comprovante desbloqueio do assinante.": "ASSINANTE DESBLOQUEADO, CONFORME ENVIO DO COMPROVANTE."
+            "Botão 11 - Assinante enviou comprovante desbloqueio do assinante.": "ASSINANTE DESBLOQUEADO, CONFORME ENVIO DO COMPROVANTE.",
+            "Botão 12 - Inatividade (lentidão)": "ASSINANTE ENTROU EM CONTATO RELATOU LENTIDÃO POREM FICOU INATIVO SENDO IMPOSSIVEL DAR SEQUENCIA NO ATENDIMENTO."
         }
     return pre_registros
 
