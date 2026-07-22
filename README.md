@@ -1,6 +1,6 @@
 # Auto Checklist 🚀
 
-Automação em Python desenvolvida para marcar rapidamente os itens de um checklist no sistema Trixnet, poupando tempo e cliques repetitivos.
+Automação em Python desenvolvida para marcar rapidamente os itens de um checklist, poupando tempo e cliques repetitivos.
 
 ## Funcionalidades
 - **Calibragem por Coordenadas**: Um assistente visual ensina o programa onde clicar no seu monitor.
