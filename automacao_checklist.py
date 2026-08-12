@@ -74,7 +74,10 @@ def carregar_pre_registros():
             "Botão 9 - Inatividade (Não falou nada)": "ASSINANTE ENTROU EM CONTATO, POREM NÃO RELATOU NADA.\nATENDIMENTO FINALIZADO COM INATIVIDADE.",
             "Botão 10 - Envio de boleto": "ENVIADO BOLETO PARA ASSINANTE, CONFORME SOLICITADO.",
             "Botão 11 - Assinante enviou comprovante desbloqueio do assinante.": "ASSINANTE DESBLOQUEADO, CONFORME ENVIO DO COMPROVANTE.",
-            "Botão 12 - Inatividade (lentidão)": "ASSINANTE ENTROU EM CONTATO RELATOU LENTIDÃO POREM FICOU INATIVO SENDO IMPOSSIVEL DAR SEQUENCIA NO ATENDIMENTO."
+            "Botão 12 - Inatividade (lentidão)": "ASSINANTE ENTROU EM CONTATO RELATOU LENTIDÃO POREM FICOU INATIVO SENDO IMPOSSIVEL DAR SEQUENCIA NO ATENDIMENTO.",
+            "Botão 13 - Registro pra IA": "Crie um registro desse atendimento do(a) XXX para poder registrar na ordem de serviço relatando o problema do assinante e a solução dada pela atendente.\n\nFormate a resposta com os seguintes tópicos:\nRELATO DO ASSINANTE\nDIAGNÓSTICO E AÇÕES REALIZADAS\nSOLUÇÃO / TRATATIVA\nSTATUS (Inatividade, sucesso, etc etc)\n\nIMPORTANTE: O registro inteiro deve ser escrito em letras MAIÚSCULAS (pois é uma exigência do nosso sistema), com exceção apenas de credenciais como senhas e nomes de rede, que devem manter o formato original.",
+            "Botão 14 - IA leia o atendimento": "Por favor, leia todo o histórico deste atendimento e sugira 3 opções diferentes de respostas educadas e adequadas para a última mensagem enviada pelo assinante, buscando solucionar sua dúvida ou dar o devido direcionamento. Assim terei opções de escolha para a melhor situação.",
+            "Botão 15 - abertura de OS setor tec IA": "Neste atendimento atual, para abrir uma OS para visita tecnica, preciso que capture as seguintes informações.\n\nRECLAMAÇÃO DO ASSINANTE:\nPROCEDIMENTOS REALIZADOS:\nORIENTAÇÃO AO TEC. DE CAMPO:\n\nDeixe tudo em maiusculo pois o sistema só suporta assim, e nas informaçôes coloque 2 pontos e na frente coloca tudo oque foi feito no atendimento."
         }
     return pre_registros
 
